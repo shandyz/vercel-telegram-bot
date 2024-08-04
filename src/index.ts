@@ -9,7 +9,7 @@ import { development, production } from './core';
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
-const WEB_APP_URL = 'https://t.me/MinersGamezBot/andys';
+const WEB_APP_URL = 'https://www.andys.md/ru/catalog/';
 
 const gameShortName = 'MinersGame';
 // const gameUrl = 'http://telegame.free.nf/index.html';
