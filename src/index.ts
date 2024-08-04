@@ -24,7 +24,7 @@ bot.command('foo', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
 
 bot.command('about', about());
-bot.command('desc', about());
+bot.command('desc', description());
 
 // bot.command('desc', description());
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
