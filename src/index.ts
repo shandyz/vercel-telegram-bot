@@ -1,7 +1,7 @@
 import { Telegraf, Markup } from 'telegraf';
 
 import { about } from './commands';
-import { greeting } from './text';
+import { greeting, description } from './text';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { development, production } from './core';
 
@@ -18,11 +18,14 @@ const markup = Markup.inlineKeyboard([
 
 const bot = new Telegraf(BOT_TOKEN);
 
-bot.start((ctx) => ctx.replyWithGame(gameShortName));
+// bot.start((ctx) => ctx.replyWithGame(gameShortName));
+bot.start((ctx) => ctx.reply(gameShortName));
 bot.command('foo', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
 
 bot.command('about', about());
+bot.command('desc', about());
+
 // bot.command('desc', description());
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 bot.hears('fuck', (ctx) => ctx.reply('Fuck you too'));
