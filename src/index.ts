@@ -30,7 +30,7 @@ bot.command('desc', about());
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 bot.hears('fuck', (ctx) => ctx.reply('Fuck you too'));
 
-bot.on('message', greeting());
+// bot.on('message', greeting());
 
 //prod mode (Vercel)
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
