@@ -9,6 +9,8 @@ import { development, production } from './core';
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
+const WEB_APP_URL = 'https://t.me/MinersGamezBot/andys';
+
 const gameShortName = 'MinersGame';
 // const gameUrl = 'http://telegame.free.nf/index.html';
 const gameUrl = 'https://play.famobi.com/wrapper/garden-bloom/A1000-10';
@@ -27,10 +29,10 @@ bot.command('play', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
 bot.command('play', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.command('game', (ctx) =>
-  ctx.reply(link('Launch', 'https://t.me/MinersGamezBot/andys')),
+  ctx.reply(
+    link('Launch', 'https://t.me/MinersGamezBot/andys?startapp=launch'),
+  ),
 );
-
-const WEB_APP_URL = 'https://www.andys.md/ru/catalog/';
 
 bot.command('keyboard', (ctx) =>
   ctx.reply(
