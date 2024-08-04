@@ -8,23 +8,21 @@ import { development, production } from './core';
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
-const gameShortName = 'Test-game';
+const gameShortName = 'MinersGame';
 // const gameUrl = 'http://telegame.free.nf/index.html';
 const gameUrl = 'https://play.famobi.com/wrapper/garden-bloom/A1000-10';
 
 const markup = Markup.inlineKeyboard([
   Markup.button.game('🎮 Play now!'),
-  Markup.button.url('Telegraf help', 'http://telegraf.js.org'),
+  Markup.button.url('Help', 'http://google.com'),
 ]);
 
 const bot = new Telegraf(BOT_TOKEN);
 
 // bot.start((ctx) => ctx.replyWithGame(gameShortName));
-bot.start((ctx) => ctx.reply(gameShortName));
-const foo = bot.command('foo', (ctx) =>
-  ctx.replyWithGame(gameShortName, markup),
-);
-console.log(foo);
+bot.start((ctx) => ctx.reply(gameShortName + ' started!'));
+bot.command('html', (ctx) => ctx.replyWithHTML('<b>bar</b>'));
+bot.command('play', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
 
 bot.command('startgame', (ctx) => {
