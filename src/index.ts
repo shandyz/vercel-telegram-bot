@@ -11,6 +11,9 @@ const ENVIRONMENT = process.env.NODE_ENV || '';
 const bot = new Telegraf(BOT_TOKEN);
 
 bot.command('about', about());
+// bot.command('desc', description());
+bot.hears('hi', (ctx) => ctx.reply('Hey there'));
+
 bot.on('message', greeting());
 
 //prod mode (Vercel)
