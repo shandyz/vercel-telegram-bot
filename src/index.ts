@@ -9,7 +9,8 @@ const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
 const gameShortName = 'Test-game';
-const gameUrl = 'http://telegame.free.nf/index.html';
+// const gameUrl = 'http://telegame.free.nf/index.html';
+const gameUrl = 'https://play.famobi.com/wrapper/garden-bloom/A1000-10';
 
 const markup = Markup.inlineKeyboard([
   Markup.button.game('🎮 Play now!'),
