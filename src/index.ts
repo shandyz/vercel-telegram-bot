@@ -20,7 +20,10 @@ const bot = new Telegraf(BOT_TOKEN);
 
 // bot.start((ctx) => ctx.replyWithGame(gameShortName));
 bot.start((ctx) => ctx.reply(gameShortName));
-bot.command('foo', (ctx) => ctx.replyWithGame(gameShortName, markup));
+const foo = bot.command('foo', (ctx) =>
+  ctx.replyWithGame(gameShortName, markup),
+);
+console.log(foo);
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
 
 bot.command('about', about());
