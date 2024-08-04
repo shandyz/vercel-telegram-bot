@@ -18,6 +18,10 @@ const markup = Markup.inlineKeyboard([
 
 const bot = new Telegraf(BOT_TOKEN);
 
+bot.start((ctx) => ctx.replyWithGame(gameShortName));
+bot.command('foo', (ctx) => ctx.replyWithGame(gameShortName, markup));
+bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
+
 bot.command('about', about());
 // bot.command('desc', description());
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
