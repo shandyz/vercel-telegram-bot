@@ -1,4 +1,5 @@
 import { Telegraf, Markup } from 'telegraf';
+import { link } from 'telegraf/format';
 
 import { about } from './commands';
 import { greeting, description } from './text';
@@ -24,6 +25,19 @@ bot.start((ctx) => ctx.reply(gameShortName + ' started!'));
 bot.command('html', (ctx) => ctx.replyWithHTML('<b>bar</b>'));
 bot.command('play', (ctx) => ctx.replyWithGame(gameShortName, markup));
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
+bot.command('play', (ctx) => ctx.replyWithGame(gameShortName, markup));
+bot.command('game', (ctx) =>
+  ctx.reply(link('Launch', 'https://t.me/MinersGamezBot/andys')),
+);
+
+const WEB_APP_URL = 'https://www.andys.md/ru/catalog/';
+
+bot.command('keyboard', (ctx) =>
+  ctx.reply(
+    'Launch mini app from keyboard!',
+    Markup.keyboard([Markup.button.webApp('Launch', WEB_APP_URL)]).resize(),
+  ),
+);
 
 bot.command('startgame', (ctx) => {
   ctx.reply('Click the button below to play the game:', {
