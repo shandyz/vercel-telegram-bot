@@ -9,7 +9,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 
 const gameShortName = 'Test-game';
-const gameUrl = 'https://telegame.free.nf/index.html';
+const gameUrl = 'http://telegame.free.nf/index.html';
 
 const markup = Markup.inlineKeyboard([
   Markup.button.game('🎮 Play now!'),
@@ -25,6 +25,14 @@ const foo = bot.command('foo', (ctx) =>
 );
 console.log(foo);
 bot.gameQuery((ctx) => ctx.answerGameQuery(gameUrl));
+
+bot.command('startgame', (ctx) => {
+  ctx.reply('Click the button below to play the game:', {
+    reply_markup: {
+      inline_keyboard: [[{ text: 'Play Game', url: gameUrl }]],
+    },
+  });
+});
 
 bot.command('about', about());
 bot.command('desc', description());
